@@ -32,4 +32,11 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.uqbar.project.wollok.wollokNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/README.md</name>
+			<type>1</type>
+			<location>/home/ai28/Descargas/README.md</location>
+		</link>
+	</linkedResources>
 </projectDescription>
