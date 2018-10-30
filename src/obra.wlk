@@ -70,16 +70,16 @@ class Obra {
 	}
 	
 	method tieneObrero(obrero) {
-		return obra.contains(obrero)
+		return obreros.contains(obrero)
 	}
 	
 	method totalAdeudado() {
-		return obra.sum({o => o.cuantoCobra()})
+		return obreros.sum({o => o.cuantoCobra()})
 	}
 	
 	method pagoJornales() {
 		efectivo -= self.totalAdeudado()
-		obra.forEach({o => o.cobrarJornal()}) 
+		obreros.forEach({o => o.cobrarJornal()}) 
 	}
 	
 	method agregarEfectivo(valor){
