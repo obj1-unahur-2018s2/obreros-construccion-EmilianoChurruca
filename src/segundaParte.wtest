@@ -1,0 +1,66 @@
+import obra.*
+import obreros.*
+import uocra.*
+
+describe "group of tests" {
+	
+	const juan = new Albanil()
+	const pedro = new Albanil()
+	const luis = new Gasista ()
+	const maria = new Gasista ()
+	const ana = new Plomero()
+	const obra = new Obra()
+	const jose = new Electricista()
+	
+fixture {
+	obra.ladrillos(1000)
+	obra.canos(400)
+	obra.fosforos(8000)
+	obra.arandelas(500)
+	obra.agregarObrero(juan)
+	obra.agregarObrero(pedro)
+	obra.agregarObrero(luis)
+	obra.agregarObrero(maria)
+	obra.agregarObrero(ana)
+	obra.agregarObrero(jose)
+	juan.noTrabaja()
+	obra.jornadaLaboral()
+	juan.trabajando()
+	ana.noTrabaja()
+	obra.jornadaLaboral()
+	}
+	
+	test "Sueldo de albañil de dos días" {
+		
+		assert.equals(4000,pedro.cuantoCobra()) 
+	}
+	
+	test "Sueldo de albañil de un días" {
+		
+		assert.equals(2000,juan.cuantoCobra()) 
+	}
+	
+	test "Sueldo de gasistas de dos días" {
+		
+		assert.equals(6000,luis.cuantoCobra()) 
+		assert.equals(6000,maria.cuantoCobra()) 
+	}
+	
+	test "Sueldo del Plomero"{
+		
+		assert.equals(3000, ana.cuantoCobra())
+	}
+	
+	test "Sueldo electricista" {
+		
+		assert.equals(7000, jose.cuantoCobra() )
+	}
+	
+	test "Deuda de la obra" {
+		obra.pagoJornales()
+		
+		assert.equals(0,obra.totalAdeudado())
+		assert.equals(72000,obra.efectivo())
+	}
+}
+	

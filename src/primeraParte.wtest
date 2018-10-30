@@ -9,6 +9,7 @@ describe "group of tests" {
 	const maria = new Gasista ()
 	const ana = new Plomero()
 	const obra = new Obra()
+	const jose = new Gasista ()
 	
 fixture {
 	obra.ladrillos(1000)
@@ -44,4 +45,13 @@ fixture {
 		assert.equals(470, obra.arandelas())
 	}
 	
+	test "tiene a María" {
+		
+		assert.that(obra.tieneObrero(maria))
+	}
+	
+	test "No tiene a José" {
+		
+		assert.notThat(obra.tieneObrero(jose))
+	}
 }

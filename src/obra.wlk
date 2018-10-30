@@ -9,6 +9,7 @@ class Obra {
 	var property cable = 0
 	var property arandelas = 0
 	var property cinta = 0
+	var property efectivo = 100000
 	
 	
 	
@@ -39,12 +40,49 @@ class Obra {
 		arandelas -= 30
 	}
 	
-	method jornadaDeTrabajoElectrisista() {
+	method jornadaDeTrabajoElectricista() {
 		cable -= 4
 		cinta -= 1
 	}
 	
+	method recibirLadrillos(cantidad) {
+		ladrillos += cantidad
+	}
 	
+	method recibirCanos(cantidad) {
+		canos += cantidad 
+	}
 	
+	method recibirFosforos(cantidad) {
+		fosforos += cantidad 
+	}
 	
+	method recibirCable(cantidad) {
+		cable += cantidad 
+	}
+	
+	method recibirArandelas(cantidad) {
+		arandelas += cantidad 
+	}
+	
+	method recibirCinta(cantidad) {
+		cinta += cantidad 
+	}
+	
+	method tieneObrero(obrero) {
+		return obra.contains(obrero)
+	}
+	
+	method totalAdeudado() {
+		return obra.sum({o => o.cuantoCobra()})
+	}
+	
+	method pagoJornales() {
+		efectivo -= self.totalAdeudado()
+		obra.forEach({o => o.cobrarJornal()}) 
+	}
+	
+	method agregarEfectivo(valor){
+		efectivo += valor
+	}
 }
