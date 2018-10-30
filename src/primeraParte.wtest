@@ -20,13 +20,13 @@ fixture {
 	obra.agregarObrero(luis)
 	obra.agregarObrero(maria)
 	obra.agregarObrero(ana)
-	juan.estaDeLicencia()
+	juan.noTrabaja()
 	obra.jornadaLaboral()
 }
 
 	test "Ladrillos" {
 
-		assert.equals(1000, obra.ladrillos())
+		assert.equals(900, obra.ladrillos())
 	}
 	
 	test "Caños" {

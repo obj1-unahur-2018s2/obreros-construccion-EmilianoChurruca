@@ -21,7 +21,7 @@ class Obra {
 	}
 	
 	method jornadaLaboral() {
-		return obra.filter({o => !o.estaDeLicencia()})
+		return obra.filter({o => not o.estaDeLicencia()})
 		.forEach({j => j.jornadaDeTrabajo(self)})	
 	}
 	

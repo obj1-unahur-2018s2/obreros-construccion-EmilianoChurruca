@@ -1,6 +1,6 @@
 import obra.*
 
-class Obrero inherits  {
+class Obrero {
 	var estaDeLicencia = false
 	
 	method trabajando() {
