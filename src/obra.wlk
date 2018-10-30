@@ -2,7 +2,7 @@ import obreros.*
 
 class Obra {
 	
-	const obra = []
+	const obreros = []
 	var property ladrillos = 0
 	var property canos = 0
 	var property fosforos = 0
@@ -14,15 +14,15 @@ class Obra {
 	
 	
 	method agregarObrero(obrero) {
-		obra.add(obrero)
+		obreros.add(obrero)
 	}
 	
 	method quitarObrero(obrero) {
-		obra.remove(obrero)
+		obreros.remove(obrero)
 	}
 	
 	method jornadaLaboral() {
-		return obra.filter({o => not o.estaDeLicencia()})
+		return obreros.filter({o => not o.estaDeLicencia()})
 		.forEach({j => j.jornadaDeTrabajo(self)})	
 	}
 	
