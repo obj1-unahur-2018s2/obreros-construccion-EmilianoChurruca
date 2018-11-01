@@ -4,6 +4,7 @@ import uocra.*
 class Obrero {
 	var estaDeLicencia = false
 	var jornalAdeudado = 0
+	const obrasQueTrabajo = #{}
 	
 	method trabajando() {
 		estaDeLicencia = false
@@ -17,7 +18,9 @@ class Obrero {
 		return estaDeLicencia
 	}
 	
-	method jornadaDeTrabajo(obra) 
+	method jornadaDeTrabajo(obra) {
+		jornalAdeudado += 1 
+	}
 	
 	method jonalesAdeudados() {
 		return jornalAdeudado
@@ -30,12 +33,20 @@ class Obrero {
 	method cobrarJornal() {
 		jornalAdeudado = 0
 	}
+	
+	method obraQueTrabajo() {
+		obrasQueTrabajo.add(self)
+	}
+	
+	method pasoPor(obra){
+		return obrasQueTrabajo.contains(obra)
+	}
 }
 
 class Albanil inherits Obrero{
 	override method jornadaDeTrabajo(obra) {
+		super(obra)
 		obra.jornadaDeTrabajoAlbanil ()
-		jornalAdeudado += 1
 	}
 	
 	override method cuantoCobra() {
@@ -46,8 +57,8 @@ class Albanil inherits Obrero{
 
 class Plomero inherits Obrero {
 	override method jornadaDeTrabajo(obra) {
+		super(obra)
 		obra.jornadaDeTrabajoPlomero()
-		jornalAdeudado += 1
 	}
 	
 	override method cuantoCobra() {
@@ -58,8 +69,8 @@ class Plomero inherits Obrero {
 
 class Electricista inherits Obrero {
 	override method jornadaDeTrabajo(obra) {
+		super(obra)
 		obra.jornadaDeTrabajoElectricista()
-		jornalAdeudado += 1
 	}
 	
 	override method cuantoCobra() {
@@ -69,8 +80,8 @@ class Electricista inherits Obrero {
 
 class Gasista inherits Obrero {
 	override method jornadaDeTrabajo(obra) {
+		super(obra)
 		obra.jornadaDeTrabajoGasista()
-		jornalAdeudado += 1
 	}
 	
 	override method cuantoCobra() {

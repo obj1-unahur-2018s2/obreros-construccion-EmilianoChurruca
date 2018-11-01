@@ -1,0 +1,35 @@
+import obra.*
+import obreros.*
+import uocra.*
+
+describe "group of tests" {
+	
+	const juan = new Albanil()
+	const pedro = new Albanil()
+	const luis = new Gasista ()
+	const maria = new Gasista ()
+	const ana = new Plomero()
+	const obra = new Casas()
+	const jose = new Electricista()
+	
+fixture {
+	obra.ladrillos(1000)
+	obra.canos(400)
+	obra.fosforos(8000)
+	obra.arandelas(500)
+	obra.agregarObrero(juan)
+	obra.agregarObrero(pedro)
+	obra.agregarObrero(luis)
+	obra.agregarObrero(maria)
+	obra.agregarObrero(ana)
+	obra.agregarObrero(jose)
+	juan.noTrabaja()
+	obra.jornadaLaboral()
+	obra.cantidadHabitaciones(3)
+	obra.cantidadPisos(1)
+	obra.cantidadbanios(2)
+	
+	}
+	
+	}
+	
